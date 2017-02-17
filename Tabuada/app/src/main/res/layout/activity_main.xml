@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.logonrm.tabuada.MainActivity">
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/garrafa"
+        android:id="@+id/imgGarrafa0"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/garrafa"
+        android:id="@+id/imgGarrafa1"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/imgGarrafa0"/>
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/garrafa"
+        android:id="@+id/imgGarrafa2"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/imgGarrafa1"/>
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/garrafa"
+        android:id="@+id/imgGarrafa3"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/imgGarrafa2"/>
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/lixo"
+        android:id="@+id/imgLixo0"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/textNum1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="100sp"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="95dp"/>
+
+    <TextView
+        android:id="@+id/textOperador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x"
+        android:textSize="100sp"
+        android:layout_toRightOf="@id/textNum1"
+        android:layout_alignBaseline="@id/textNum1"/>
+
+    <TextView
+        android:id="@+id/textNum3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="100sp"
+        android:layout_toRightOf="@id/textOperador"
+        android:layout_alignBaseline="@id/textOperador"/>
+
+    <EditText
+        android:id="@+id/edtResposta"
+        android:layout_width="130dp"
+        android:layout_height="100dp"
+        android:background="#FF0000"
+        android:layout_below="@id/textOperador"
+        android:layout_centerInParent="true"
+        android:inputType="number"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/labelVerificar"
+        android:background="#000"
+        android:layout_alignParentBottom="true"
+        android:textColor="#fff"/>
+
+</RelativeLayout>
