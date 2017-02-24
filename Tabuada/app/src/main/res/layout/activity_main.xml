@@ -69,7 +69,7 @@
         android:layout_alignBaseline="@id/textNum1"/>
 
     <TextView
-        android:id="@+id/textNum3"
+        android:id="@+id/textNum2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
@@ -92,6 +92,7 @@
         android:text="@string/labelVerificar"
         android:background="#000"
         android:layout_alignParentBottom="true"
-        android:textColor="#fff"/>
+        android:textColor="#fff"
+        android:onClick="conferir"/>
 
 </RelativeLayout>
