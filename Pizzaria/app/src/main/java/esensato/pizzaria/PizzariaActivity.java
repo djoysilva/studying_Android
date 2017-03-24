@@ -3,6 +3,7 @@ package esensato.pizzaria;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.accessibility.AccessibilityManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
@@ -15,13 +16,22 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PizzariaActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class PizzariaActivity extends AppCompatActivity
+implements AdapterView.OnItemSelectedListener,
+        RadioGroup.OnCheckedChangeListener{
 
     private Spinner spSabores;
     private ImageView imgPizza;
+    private RadioGroup rgTamanho;
+    private CheckBox chkBorda;
+
     private List<PizzaBean> pizzas;
     private ArrayAdapter<PizzaBean> adpPizza;
-    private PizzaBean selecionada;
+
+    private PizzaBean pizzaSelecionada;
+    private int tamanhoSelecionado;
+    private boolean bordaSelecionada;
+    private TextView txtPreco;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +42,27 @@ public class PizzariaActivity extends AppCompatActivity implements AdapterView.O
         popularSpinnerSabores();
         spSabores.setOnItemSelectedListener(this);
         imgPizza = (ImageView) findViewById(R.id.imgPizza);
+        rgTamanho = (RadioGroup) findViewById(R.id.rgTamanho);
+        rgTamanho.setOnCheckedChangeListener(this);
+        chkBorda = (CheckBox) findViewById(R.id.chkBorda);
+        txtPreco = (TextView) findViewById(R.id.txtPreco);
 
     }
 
+    private void calcularPreco(){
+        double preco = pizzaSelecionada.getPreco();
+        if(tamanhoSelecionado == R.id.rbPequeno)
+            preco += 5.0;
+        else if(tamanhoSelecionado == R.id.rbMedio)
+            preco += 10.0;
+        else if(tamanhoSelecionado == R.id.rbGrande)
+            preco += 15.0;
+
+        if(bordaSelecionada)
+            preco += 5.0;
+
+        txtPreco.setText(String.valueOf(preco));
+    }
 
     private void popularSpinnerSabores() {
 
@@ -59,14 +87,49 @@ public class PizzariaActivity extends AppCompatActivity implements AdapterView.O
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        PizzaBean pizza = (PizzaBean) parent.getItemAtPosition(position);
-        Toast.makeText(this, pizza.getSabor(), Toast.LENGTH_SHORT).show();
-        imgPizza.setImageResource(pizza.getImagem());
+
+        // retorna a pizza (PizzaBean) selecionada em position
+        PizzaBean sel = (PizzaBean) parent.getItemAtPosition(position);
+        Toast.makeText(this, sel.getSabor(), Toast.LENGTH_SHORT).show();
+        // troca a imagem da pizza (ImageView) de acordo
+        // com o R.drawable definido no PizzaBean
+        imgPizza.setImageResource(sel.getImagem());
+        calcularPreco();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    // acionado quando usuario seleciona um RadioButton
+    // checkedId = R.id do RadioButton selecionado
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        // if (group.getId() == R.id.rgTamanho)
+
+        String t = "";
+        if (checkedId == R.id.rbPequeno)
+            t = "PEQUENO";
+        else if (checkedId == R.id.rbMedio)
+            t = "MÉDIO";
+        else if (checkedId == R.id.rbGrande)
+            t = "GRANDE";
+        Toast.makeText(this, t, Toast.LENGTH_SHORT).show();
+
+        tamanhoSelecionado = checkedId;
+        calcularPreco();
+
+    }
+
+    public void borda(View v){
+        if(chkBorda.isChecked())
+            Toast.makeText(this, "COM BORDA", Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(this, "SEM BORDA", Toast.LENGTH_SHORT).show();
+
+        bordaSelecionada = chkBorda.isChecked();
+        calcularPreco();
     }
 }
 

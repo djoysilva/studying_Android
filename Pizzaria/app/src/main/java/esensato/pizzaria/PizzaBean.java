@@ -38,7 +38,7 @@ public class PizzaBean {
 
     @Override
     public String toString() {
-        return getSabor() + " : " + this.getPreco();
+        return getPreco() + " = " + getSabor();
     }
 }
 
