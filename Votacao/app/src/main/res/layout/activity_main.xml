@@ -10,8 +10,35 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.rm76983.votacao.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView android:id="@+id/imgBrasao"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@drawable/brasao"
+        android:layout_centerHorizontal="true"/>
+
+    <RadioGroup android:id="@+id/rgCargo"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_width="wrap_content"
+        android:layout_column="1"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/imgBrasao">
+
+        <RadioButton android:id="@+id/rbPrefeito"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checkPrefeito"/>
+
+        <RadioButton android:id="@+id/rbVereador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/checkVereador"/>
+    </RadioGroup>
+    
+    <Spinner android:id="@+id/nomeCandidato"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_column="1" />
+
 </RelativeLayout>
