@@ -8,37 +8,64 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.rm76983.votacao.MainActivity">
+    tools:context="fiap.com.br.votacao.MainActivity">
 
-    <ImageView android:id="@+id/imgBrasao"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:src="@drawable/brasao"
+    <ImageView android:id="@+id/imgUrna"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/urna"
         android:layout_centerHorizontal="true"/>
 
-    <RadioGroup android:id="@+id/rgCargo"
-        android:layout_height="wrap_content"
+    <RadioGroup android:id="@+id/rgCargos"
         android:layout_width="wrap_content"
-        android:layout_column="1"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgUrna"
+        android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/imgBrasao">
+        android:orientation="horizontal">
 
         <RadioButton android:id="@+id/rbPrefeito"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/checkPrefeito"/>
+            android:text="@string/lblPrefeito"
+            android:checked="true"/>
 
         <RadioButton android:id="@+id/rbVereador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/checkVereador"/>
+            android:text="@string/lblVereador"/>
     </RadioGroup>
-    
-    <Spinner android:id="@+id/nomeCandidato"
+
+    <Spinner android:id="@+id/spCandidatos"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_column="1" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rgCargos"
+        android:layout_marginTop="30dp">
+    </Spinner>
+
+    <Button android:id="@+id/btnVotar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spCandidatos"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/lblVotar"/>
+
+    <TextView android:id="@+id/txtPrefeito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lblPrefeito"
+        android:layout_below="@id/btnVotar"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView android:id="@+id/txtVereador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lblVereador"
+        android:layout_below="@id/txtPrefeito"
+        android:layout_marginTop="20sp"
+        android:layout_centerHorizontal="true"/>
+
 
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.example.rm76983.votacao;
+package fiap.com.br.votacao;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.rm76983.votacao", appContext.getPackageName());
+        assertEquals("fiap.com.br.votacao", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package com.example.rm76983.votacao;
+package fiap.com.br.votacao;
 
 import org.junit.Test;
 

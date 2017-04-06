@@ -1,7 +1,7 @@
-package com.example.rm76983.votacao;
+package fiap.com.br.votacao;
 
 /**
- * Created by logonrm on 30/03/2017.
+ * Created by logonrm on 06/04/2017.
  */
 
 public class CandidatoBean {
@@ -16,14 +16,6 @@ public class CandidatoBean {
         this.partido = partido;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getPartido() {
         return partido;
     }
@@ -32,8 +24,16 @@ public class CandidatoBean {
         this.partido = partido;
     }
 
-    public String toString(){
-        return getNome() + "-" + getPartido();
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return  nome + " - " + partido;
     }
 }
-

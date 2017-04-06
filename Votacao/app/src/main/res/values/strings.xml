@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Votacao</string>
+    <string name="lblPrefeito">Prefeito</string>
+    <string name="lblVereador">Vereador</string>
+    <string name="lblVotar">Votar</string>
 </resources>
