@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="16dp"
+    tools:context="com.example.logonrm.bancoonline.MainActivity">
+
+   <Button android:id="@+id/btnCC"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="C/C"
+       android:onClick="contaCorrente"/>
+
+    <Button android:id="@+id/btnAplicacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aplicação"
+        android:layout_toRightOf="@+id/btnCC"
+        android:onClick="aplicacao"/>
+
+    <FrameLayout android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/btnCC"
+        android:layout_marginTop="20dp">
+
+    </FrameLayout>
+</RelativeLayout>
